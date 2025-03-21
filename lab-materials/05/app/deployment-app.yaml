@@ -20,6 +20,11 @@ spec:
       containers:
         - name: insurance-claim-app
           image: quay.io/rh_ee_cschmitz/rhoai-lab-insurance-claim-app:2.1.1
+          command:
+            - /bin/sh
+            - -c
+            - /usr/libexec/s2i/run
+
           ports:
             - containerPort: 5000
               protocol: TCP
