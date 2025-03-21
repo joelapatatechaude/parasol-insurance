@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: insurance-claim-app
-          image: quay.io/rh-aiservices-bu/rhoai-lab-insurance-claim-app:2.2.1
+          image: quay.io/rh_ee_cschmitz/rhoai-lab-insurance-claim-app:2.2.1
           ports:
             - containerPort: 5000
               protocol: TCP
@@ -29,9 +29,11 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: INFERENCE_SERVER_URL
-              value: http://granite-7b-instruct-predictor.ic-shared-llm.svc.cluster.local:8080/v1
+              value: https://api.openai.com/v1
+            - name: OPENAI_API_KEY
+              value: update-me
             - name: MODEL_NAME
-              value: 'granite-7b-instruct'
+              value: 'gpt-3.5-turbo'
             - name: MAX_TOKENS
               value: '512'
             - name: TOP_P
